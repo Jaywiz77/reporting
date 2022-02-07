@@ -23,6 +23,8 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import DesktopDatePicker from '@mui/lab/DesktopDatePicker';
 import TextField from '@mui/material/TextField';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
 
 function createData(name, calories, fat, carbs, protein) {
@@ -165,8 +167,9 @@ EnhancedTableHead.propTypes = {
 };
 
 const EnhancedTableToolbar = (props) => {
-    const { numSelected } = props;
-          const [value, setValue] = React.useState(new Date('2022-02-06T21:11:54'));
+  const { numSelected } = props;
+
+    const [value, setValue] = React.useState(new Date('2022-02-06T21:11:54'));
 
   const handleChange = (newValue) => {
     setValue(newValue);
@@ -202,12 +205,22 @@ const EnhancedTableToolbar = (props) => {
           Scripts
         </Typography>
       )}
-
-        <Tooltip title="Filter list">
+     
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+                 <DesktopDatePicker
+          label="Date"
+          inputFormat="MM/dd/yyyy"
+          value={value}
+          onChange={handleChange}
+            renderInput={(params) => <TextField {...params} />}
+            
+          />
+          </LocalizationProvider>
+        {/* <Tooltip title="Filter list">
           <IconButton>
             <FilterListIcon />
           </IconButton>
-          </Tooltip>
+          </Tooltip> */}
 
                   
 

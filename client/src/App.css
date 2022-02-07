@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.MuiDataGrid-colCellTitle {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.MuiDataGrid-cellCenter {
+  justify-content: center;
+}

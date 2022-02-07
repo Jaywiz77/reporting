@@ -1,11 +1,13 @@
 import React from "react";
 import logo from './logo.svg';
 import './App.css';
-import DataTable from "./table.js"
+
+import BasicTabs from "./tabs.js"
 
 function App() {
   const [data, setData] = React.useState(null);
-  const table = DataTable();
+
+  const tabs = BasicTabs();
   React.useEffect(() => {
     fetch("/api")
       .then((res) => res.json())
@@ -18,7 +20,7 @@ function App() {
         <p>{!data ? "Loading..." : data}</p>
          */}
         <div >
-          {table}
+          {tabs}
         </div>
         
       </header>
